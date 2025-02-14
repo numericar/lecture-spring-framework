@@ -1,0 +1,6 @@
+Architecture
+    Host OS
+        JVM
+            Tomcat
+                Spring Boot
+                    [thymeleaf] <---> [controller] <---> [service] <---> [repository] <---> [hibernate <---> [(spring data jpa) <---> (jdbc)]]
