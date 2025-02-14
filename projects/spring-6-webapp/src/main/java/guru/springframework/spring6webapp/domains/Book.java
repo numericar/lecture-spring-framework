@@ -1,10 +1,15 @@
 package guru.springframework.spring6webapp.domains;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +26,16 @@ public class Book {
 
     @Column(name = "isbn")
     private String isbn;
+
+    /*
+     * @JoinTable ใช้สำหรับสร้างตารางจัดเก็บความสัมพันธ์แบบ many to many โดนจะนำ id ของทั้ง 2 ตารางมาจัดเก็บไว้
+     * joinColumns ใช้สำหรับระบุ foreign key ของตารางปัจจุบัน
+     * inverseJoinCalumn ใช้สำหรับระบุ foreign key ของตารางที่เกี่ยวข้อง
+     */
+
+    @ManyToMany(mappedBy = "books")
+    @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id")) // สร้าง table ชื่อ author_book ที่มี column book_id และ author_id เพื่อเก็บข้อมูลของความสัมพันธ์ระหว่าง entity Book และ entity Author
+    private Set<Author> authors;
 
     public Long getId() {
         return id;
@@ -45,4 +60,12 @@ public class Book {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }    
 }

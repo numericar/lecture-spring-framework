@@ -1,10 +1,13 @@
 package guru.springframework.spring6webapp.domains;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 /*
@@ -25,6 +28,9 @@ public class Author {
 
     @Column(name = "last_name") // annotation สำหรับระบุชื่อของ column ใน table
     private String lastName;
+
+    @ManyToMany(mappedBy = "authors") // annotation สำหรับระบุว่าเป็นการ map ความสัมพันธ์ของ entity นี้กับ entity อื่น โดยใช้ field ที่กำหนดไว้ โดยในที่นี้คือ field authors ของ entity Book
+    private Set<Book> books; // ตัวแปรชนิด Set ที่ใช้เก็บข้อมูลของ Book
 
     public Long getId() {
         return id;
@@ -48,5 +54,13 @@ public class Author {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }
