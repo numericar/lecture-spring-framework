@@ -1,5 +1,6 @@
 package guru.springframework.spring6webapp.domains;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -33,9 +34,9 @@ public class Book {
      * inverseJoinCalumn ใช้สำหรับระบุ foreign key ของตารางที่เกี่ยวข้อง
      */
 
-    @ManyToMany(mappedBy = "books")
+    @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id")) // สร้าง table ชื่อ author_book ที่มี column book_id และ author_id เพื่อเก็บข้อมูลของความสัมพันธ์ระหว่าง entity Book และ entity Author
-    private Set<Author> authors;
+    private Set<Author> authors = new HashSet<>();
 
     public Long getId() {
         return id;

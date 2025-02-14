@@ -1,5 +1,6 @@
 package guru.springframework.spring6webapp.domains;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -30,7 +31,7 @@ public class Author {
     private String lastName;
 
     @ManyToMany(mappedBy = "authors") // annotation สำหรับระบุว่าเป็นการ map ความสัมพันธ์ของ entity นี้กับ entity อื่น โดยใช้ field ที่กำหนดไว้ โดยในที่นี้คือ field authors ของ entity Book
-    private Set<Book> books; // ตัวแปรชนิด Set ที่ใช้เก็บข้อมูลของ Book
+    private Set<Book> books = new HashSet<>(); // ตัวแปรชนิด Set ที่ใช้เก็บข้อมูลของ Book
 
     public Long getId() {
         return id;
