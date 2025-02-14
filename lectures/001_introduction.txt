@@ -1,0 +1,18 @@
+Spring Framework
+    เป็นกลุ่มของ libraries ต่าง ๆ สำหรับพัฒนาโปรเจค เช่น Dependency Injection, Web, Transaction Managment
+
+Spring Framework 
+    เป็นเครื่องมือสำหรับสร้างแอปพลิเคชันจาก Spring Framework
+
+Spring Project
+    Spring Data
+        ใช้สำหรับจัดการการเชื่อมต่อกับฐานข้อมูลต่าง ๆ ทั้ง Sql และ NoSql
+    Spring Cloud
+        สำหรับสร้างระบบแบบ microservice
+    Spring Security
+        สำหรับสร้างระบบยืนยันตัวตนและรักษาความปลอดภัย
+    Spring Session
+        ใช้สำหรับจัดการกับ session โดชใช้คู่กับ database redis
+    Spring Intregation
+    Spring Batch
+    Spring State Machine
