@@ -1,0 +1,12 @@
+Maven Standard Directory
+    src/main/java 
+        จัดเก็บชุดคำสั่งของแอพพลิเคชัน
+    
+    src/main/resource
+        จัดเก็บ configuration ของแอพพลิเคชัน
+
+    src/test/java 
+        จัดเก็บชุดคำสั่งสำหรับทดสอบแอพพลิเคชัน
+
+    src/test/resource 
+        จัดเก็บ configuration สำหรับการทดสอบของแอพพลิเคชัน
