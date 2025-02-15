@@ -1,0 +1,16 @@
+SOLID
+    S - Single Responsibility Principle
+        ทุก ๆ คลาสควรจะมีความรับผิดชิบเพียงสิ่งเดียว ไม่ควรมีมากกว่า 1 เหตุผลที่จะมีคลาสนั้น
+
+    O - Open Closed Principle
+        คลาสควรจะเปิดให้รองรับการขยายความสามารถ แต่ปิดไม่ให้มีการดัดแปลงความสามารถเดิม
+
+    L - Liskov Substitution Principle
+        วัตถุจากคลาาลูก ควรสามารถแทนที่วัตถุของคลาสแม่ได้ โดยที่โปรแกรมยังทำงานได้อย่างถูกต้อง
+
+    I - Interface Segregation Principle
+        คลาส ไม่ควรจะต้อง implement การทำงาน method ที่ตัวเองไม่ได้ใช้ 
+        โดยควรแยก Interface ออกเป็นส่วนย่อย ๆ ความหน้าที่ ๆ ชัดเจน
+
+    D - Dependency Inversion Principle
+        ของที่เป็น High level module ไม่ควรผูกติดกับ low level module โดยทั้ง 2 จะรู้จักกันผ่าน abstract
