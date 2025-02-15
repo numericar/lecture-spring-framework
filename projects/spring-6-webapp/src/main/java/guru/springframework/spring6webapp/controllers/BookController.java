@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import guru.springframework.spring6webapp.services.BookService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller // ระบุว่า class นี้เป็น controller
