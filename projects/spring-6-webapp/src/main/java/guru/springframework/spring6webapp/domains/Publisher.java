@@ -1,10 +1,14 @@
 package guru.springframework.spring6webapp.domains;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,6 +34,9 @@ public class Publisher {
 
     @Column(name = "zip")
     private String zip;
+
+    @OneToMany(mappedBy = "publisher") // ระบุว่า entity Publisher มีความสัมพันธ์แบบ one to many กับ entity Book
+    private Set<Book> books = new HashSet<>();
 
     public Long getId() {
         return id;

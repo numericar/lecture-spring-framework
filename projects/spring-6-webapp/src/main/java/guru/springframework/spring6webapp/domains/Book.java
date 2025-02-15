@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -37,6 +38,10 @@ public class Book {
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id")) // สร้าง table ชื่อ author_book ที่มี column book_id และ author_id เพื่อเก็บข้อมูลของความสัมพันธ์ระหว่าง entity Book และ entity Author
     private Set<Author> authors = new HashSet<>();
+
+    @ManyToOne // ระบุว่า entity Book มีความสัมพันธ์แบบ many to one กับ entity Publisher
+    @JoinColumn(name = "publisher_id") // ระบุว่า column ที่ใช้เป็น foreign key ใน entity Book คือ publisher_id
+    private Publisher publisher;
 
     public Long getId() {
         return id;
@@ -98,5 +103,13 @@ public class Book {
     @Override
     public String toString() {
         return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + ", authors=" + authors + "]";
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }    
 }
