@@ -13,7 +13,7 @@ public class AuthorServiceImpl implements AuthorService {
         this.authorRepository = authorRepository;
     }
 
-    @Override
+    @Override // annotation สำหรับระบุว่า method นี้เป็นการ override method จาก interface หรือ superclass
     public Iterable<Author> findAll() {
         return this.authorRepository.findAll();
     }
