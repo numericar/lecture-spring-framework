@@ -9,7 +9,6 @@ import guru.springframework.spring6webapp.repositories.AuthorRepository;
 public class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository;
 
-    public AuthorServiceImpl(AuthorService authorService) {
     public AuthorServiceImpl(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
     }
